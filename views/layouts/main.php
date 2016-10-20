@@ -46,8 +46,17 @@ AppAsset::register($this);
       //สร้างตัวแปร เพื่อทำ Sub Manu
            $setting = [
                       ['label' => 'สถานะคอมพิวเตอร์', 'url' => ['/comstatus']],
+                      ['label' => 'ประเภทคอมพิวเตอร์', 'url' => ['/com-type']],
                       ];
         
+           
+           $regis= [
+                      ['label' => 'ทะเบียนคอม', 'url' => ['/com']],
+                      ];
+            $report = [
+                      ['label' => 'รายละเอียดประเภท', 'url' => ['/reportcometype']],
+                      ['label' => 'รายละเอียดคอมพิวเตอร์', 'url' => ['/report_come_deail']],
+                      ];
    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'], 
@@ -56,10 +65,12 @@ AppAsset::register($this);
       
         'items' => [
             ['label' => '<span class="glyphicon glyphicon-home"> </span> หน้าแรก', 'url' => ['/site/index']],
+            ['label' => 'ลงทะเบียน', 'items' => $regis],
             ['label' => '<span class="glyphicon glyphicon-search"> </span> เกี่ยวกับ', 'url' => ['/site/about']],
             ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
             ['label' => 'ทดสอบ1', 'url' => ['/first1/index']],
             ['label' => 'ตั้งค่าระบบ', 'items' => $setting],
+            ['label' => 'รายงาน', 'items' => $report],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
